@@ -12,6 +12,8 @@ import logo from "../assets/logo.svg";
 import transferPersonOne from "../assets/transfer-1.png";
 import transferPersonTwo from "../assets/transfer-2.png";
 import transferPersonThree from "../assets/transfer-3.png";
+import cardChip from "../assets/card-chip.svg";
+import cardChipDark from "../assets/card-chip-dark.svg";
 
 const assets = {
   account,
@@ -28,5 +30,7 @@ const assets = {
   transferPersonOne,
   transferPersonTwo,
   transferPersonThree,
+  cardChip,
+  cardChipDark,
 };
 export default assets;

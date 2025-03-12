@@ -12,7 +12,7 @@ const Layout = () => {
       {!isMobile && <Sidebar />}
       <div className="flex flex-col flex-1 overflow-hidden">
         {isMobile ? <MobileHeader /> : <Header />}
-        <main className="flex-1 overflow-y-auto bg-[#F5F7FA] p-4">
+        <main className="flex-1 overflow-y-auto bg-[#F5F7FA] p-2 md:p-4">
           <Outlet />
         </main>
       </div>

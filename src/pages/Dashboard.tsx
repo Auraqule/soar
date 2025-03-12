@@ -9,14 +9,16 @@ import { useStore } from "../store";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
 const Dashboard = () => {
-  const { fetchCards, fetchTransactions, fetchChartData } = useStore();
+  const { fetchUser, fetchCards, fetchTransactions, fetchChartData } =
+    useStore();
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
+    fetchUser();
     fetchCards();
     fetchTransactions();
     fetchChartData();
-  }, [fetchCards, fetchTransactions, fetchChartData]);
+  }, [fetchUser, fetchCards, fetchTransactions, fetchChartData]);
 
   return (
     <div className="">
@@ -49,10 +51,6 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <QuickTransfer />
-            <BalanceHistory />
-          </div> */}
           <div className="grid grid-cols-1 lg:grid-cols-3">
             <div className="lg:col-span-1">
               <QuickTransfer />
