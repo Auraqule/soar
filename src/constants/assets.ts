@@ -9,6 +9,9 @@ import settings from "../assets/settings.svg";
 import transaction from "../assets/transaction.svg";
 import user from "../assets/user.png";
 import logo from "../assets/logo.svg";
+import transferPersonOne from "../assets/transfer-1.png";
+import transferPersonTwo from "../assets/transfer-2.png";
+import transferPersonThree from "../assets/transfer-3.png";
 
 const assets = {
   account,
@@ -22,5 +25,8 @@ const assets = {
   transaction,
   user,
   logo,
+  transferPersonOne,
+  transferPersonTwo,
+  transferPersonThree,
 };
 export default assets;

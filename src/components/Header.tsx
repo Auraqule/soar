@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useLocation } from "react-router";
-import { BellIcon, CogIcon } from "@heroicons/react/16/solid";
-import { BellAlertIcon } from "@heroicons/react/16/solid";
 import { Icon } from "@iconify/react";
 import { assets } from "../constants";
 const Header = () => {

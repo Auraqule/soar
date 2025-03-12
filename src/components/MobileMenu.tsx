@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { NavLink } from "react-router"; // Corrected import
+import { NavLink } from "react-router";
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import { assets } from "../constants";
 

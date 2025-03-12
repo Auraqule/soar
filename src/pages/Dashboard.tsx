@@ -19,13 +19,19 @@ const Dashboard = () => {
   }, [fetchCards, fetchTransactions, fetchChartData]);
 
   return (
-    <div className="space-y-6">
-      <CardSection />
+    <div className="">
+      <div className="grid grid-cols-1 lg:grid-cols-3">
+        <div className="lg:col-span-2">
+          <CardSection />
+        </div>
+        <div className="lg:col-span-1">
+          <RecentTransactions />
+        </div>
+      </div>
 
       {isMobile ? (
         // Mobile layout - stacked
         <div className="space-y-6">
-          <RecentTransactions />
           <WeeklyActivity />
           <ExpenseStatistics />
           <QuickTransfer />
@@ -34,17 +40,27 @@ const Dashboard = () => {
       ) : (
         // Desktop layout - grid
         <>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <RecentTransactions />
-            <ExpenseStatistics />
+          <div className="grid grid-cols-1 lg:grid-cols-3">
+            <div className="lg:col-span-2">
+              <WeeklyActivity />
+            </div>
+            <div className="lg:col-span-1">
+              <ExpenseStatistics />
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <WeeklyActivity />
+          {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <QuickTransfer />
             <BalanceHistory />
+          </div> */}
+          <div className="grid grid-cols-1 lg:grid-cols-3">
+            <div className="lg:col-span-1">
+              <QuickTransfer />
+            </div>
+            <div className="lg:col-span-2">
+              <BalanceHistory />
+            </div>
           </div>
-
-          <QuickTransfer />
         </>
       )}
     </div>

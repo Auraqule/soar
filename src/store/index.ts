@@ -5,7 +5,6 @@ import {
   fetchMockTransactions,
   fetchMockChartData,
   fetchMockUser,
-  fetchMockContacts,
 } from "../api/mockData";
 
 interface StoreState {

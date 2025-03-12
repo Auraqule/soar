@@ -1,8 +1,9 @@
 import { useRef, useEffect } from "react";
 import { Chart, registerables } from "chart.js";
 import { useStore } from "../../store";
+import DataLabelsPlugin from "chartjs-plugin-datalabels";
 
-Chart.register(...registerables);
+Chart.register(...registerables, DataLabelsPlugin);
 
 const ExpenseStatistics = () => {
   const { expenseStats } = useStore();
@@ -21,7 +22,7 @@ const ExpenseStatistics = () => {
     if (!ctx) return;
 
     chartInstance.current = new Chart(ctx, {
-      type: "doughnut",
+      type: "pie",
       data: {
         labels: expenseStats.map((stat) => stat.category),
         datasets: [
@@ -34,14 +35,14 @@ const ExpenseStatistics = () => {
               "#1F2937", // Others
             ],
             borderWidth: 0,
-            borderRadius: 4,
+            // borderRadius: 4,
           },
         ],
       },
       options: {
+        offset: [20, 40, 45, 20],
         responsive: true,
         maintainAspectRatio: false,
-        cutout: "70%",
         plugins: {
           legend: {
             position: "right",
@@ -50,6 +51,9 @@ const ExpenseStatistics = () => {
               padding: 20,
               font: {
                 size: 12,
+              },
+              generateLabels: () => {
+                return []; // Return an empty array to hide legend labels
               },
             },
           },
@@ -60,6 +64,22 @@ const ExpenseStatistics = () => {
                 const value = context.raw as number;
                 return `${label}: ${value}%`;
               },
+            },
+          },
+          datalabels: {
+            color: "#FFFFFF",
+            font: {
+              size: 12,
+              weight: "bold",
+            },
+            align: "center",
+            textAlign: "right",
+            // offset: -80,
+            formatter: (value) => {
+              //   const label = context.chart.data.labels[context.dataIndex];
+              // Display both the label and the percentage
+              //   return `${label}\n${value}%`;
+              return `${value}%`;
             },
           },
         },
@@ -74,12 +94,12 @@ const ExpenseStatistics = () => {
   }, [expenseStats]);
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-gray-800 mb-4">
+    <div className="px-2 md:px-6 py-4">
+      <h2 className="text-lg font-semibold text-gray-800 md:mb-4">
         Expense Statistics
       </h2>
 
-      <div className="h-64">
+      <div className="h-81 md:bg-white rounded-3xl md:p-6">
         <canvas
           ref={chartRef}
           aria-label="Expense statistics pie chart"

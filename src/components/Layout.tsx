@@ -1,5 +1,4 @@
 import { Outlet } from "react-router";
-
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import Sidebar from "./Sidebar";
 import MobileHeader from "./MobileHeader";
@@ -13,7 +12,7 @@ const Layout = () => {
       {!isMobile && <Sidebar />}
       <div className="flex flex-col flex-1 overflow-hidden">
         {isMobile ? <MobileHeader /> : <Header />}
-        <main className="flex-1 overflow-y-auto bg-gray-50 p-4">
+        <main className="flex-1 overflow-y-auto bg-[#F5F7FA] p-4">
           <Outlet />
         </main>
       </div>

@@ -1,3 +1,4 @@
+import { assets } from "../constants";
 import { CardType, TransactionType, ContactType, UserType } from "../types";
 
 // Mock data for cards
@@ -86,19 +87,43 @@ export const fetchMockChartData = (): Promise<{
         id: 1,
         name: "Livia Bator",
         role: "CEO",
-        avatar: "/placeholder.svg?height=48&width=48",
+        avatar: assets.transferPersonOne,
       },
       {
         id: 2,
         name: "Randy Press",
         role: "Director",
-        avatar: "/placeholder.svg?height=48&width=48",
+        avatar: assets.transferPersonTwo,
       },
       {
         id: 3,
         name: "Workman",
         role: "Designer",
-        avatar: "/placeholder.svg?height=48&width=48",
+        avatar: assets.transferPersonThree,
+      },
+      {
+        id: 4,
+        name: "Randy Press",
+        role: "Director",
+        avatar: assets.transferPersonTwo,
+      },
+      {
+        id: 5,
+        name: "Workman",
+        role: "Designer",
+        avatar: assets.transferPersonThree,
+      },
+      {
+        id: 6,
+        name: "Randy Press",
+        role: "Director",
+        avatar: assets.transferPersonTwo,
+      },
+      {
+        id: 7,
+        name: "Workman",
+        role: "Designer",
+        avatar: assets.transferPersonThree,
       },
     ],
   });
