@@ -32,6 +32,7 @@ export const fetchMockTransactions = (): Promise<TransactionType[]> => {
       date: "25 January 2021",
       amount: 850,
       type: "deposit",
+      action: "debit",
     },
     {
       id: 2,
@@ -39,6 +40,7 @@ export const fetchMockTransactions = (): Promise<TransactionType[]> => {
       date: "25 January 2021",
       amount: 2500,
       type: "payment",
+      action: "credit",
     },
     {
       id: 3,
@@ -46,6 +48,7 @@ export const fetchMockTransactions = (): Promise<TransactionType[]> => {
       date: "21 January 2021",
       amount: 5400,
       type: "transfer",
+      action: "credit",
     },
   ]);
 };
