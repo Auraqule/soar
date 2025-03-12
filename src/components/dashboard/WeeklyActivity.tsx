@@ -29,15 +29,21 @@ const WeeklyActivity = () => {
             label: "Withdraw",
             data: weeklyActivity.map((day) => day.withdraw),
             backgroundColor: "#1F2937",
-            borderRadius: 4,
-            barThickness: 12,
+            borderRadius: 30,
+            barThickness: 14,
+            borderWidth: 3,
+            borderColor: "transparent",
+            borderSkipped: false,
           },
           {
             label: "Deposit",
             data: weeklyActivity.map((day) => day.deposit),
-            backgroundColor: "#3B82F6",
-            borderRadius: 4,
-            barThickness: 12,
+            backgroundColor: "#396AFF",
+            borderRadius: 30,
+            barThickness: 14,
+            borderWidth: 3,
+            borderColor: "transparent",
+            borderSkipped: false,
           },
         ],
       },
@@ -47,30 +53,65 @@ const WeeklyActivity = () => {
         plugins: {
           legend: {
             position: "top",
-            align: "start",
+            align: "end",
             labels: {
               boxWidth: 8,
               usePointStyle: true,
               pointStyle: "circle",
+              font: {
+                size: 12,
+              },
+              color: "#6B7280", // Gray color for legend text
             },
           },
           tooltip: {
             mode: "index",
             intersect: false,
+            backgroundColor: "#1F2937",
+            titleColor: "#FFFFFF",
+            bodyColor: "#FFFFFF",
+            titleFont: {
+              size: 14,
+            },
+            bodyFont: {
+              size: 12,
+            },
+            padding: 8,
+            cornerRadius: 4,
+          },
+          datalabels: {
+            display: false,
           },
         },
         scales: {
           y: {
             beginAtZero: true,
             grid: {
-              display: false,
+              display: true,
+              color: "#F3F3F5",
             },
             ticks: {
               stepSize: 100,
+              color: "#718EBF",
+              font: {
+                size: 12,
+              },
+            },
+            border: {
+              display: false,
             },
           },
           x: {
             grid: {
+              display: false,
+            },
+            ticks: {
+              color: "#6B7280",
+              font: {
+                size: 12,
+              },
+            },
+            border: {
               display: false,
             },
           },
@@ -86,12 +127,12 @@ const WeeklyActivity = () => {
   }, [weeklyActivity]);
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm">
+    <div className=" px-2 md:px-6 py-4">
       <h2 className="text-lg font-semibold text-gray-800 mb-4">
         Weekly Activity
       </h2>
 
-      <div className="h-64">
+      <div className="h-81 md:bg-white rounded-lg  md:p-6">
         <canvas
           ref={chartRef}
           aria-label="Weekly activity chart showing deposits and withdrawals"

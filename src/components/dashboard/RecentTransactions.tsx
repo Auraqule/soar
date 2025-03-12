@@ -40,12 +40,12 @@ const RecentTransactions = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm">
+    <div className="px-2 md:px-6 py-4">
       <h2 className="text-lg font-semibold text-gray-800 mb-4">
         Recent Transaction
       </h2>
 
-      <div className="space-y-4">
+      <div className="space-y-4  md:bg-white rounded-3xl py-6  md:p-6  h-[236px] overflow-y-auto">
         {transactions.map((transaction) => (
           <div key={transaction.id} className="flex items-center">
             {getTransactionIcon(transaction.type)}
