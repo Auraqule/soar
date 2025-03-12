@@ -26,7 +26,7 @@ const CardSection = () => {
             <div
               key={card.id}
               className={`snap-start flex-shrink-0 ${
-                isMobile ? "w-[85%]" : "w-full"
+                isMobile ? "w-[85%]" : "w-[48.5%]"
               }`}
             >
               <Card card={card} />

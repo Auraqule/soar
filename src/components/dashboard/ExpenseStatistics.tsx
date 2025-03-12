@@ -29,10 +29,10 @@ const ExpenseStatistics = () => {
           {
             data: expenseStats.map((stat) => stat.percentage),
             backgroundColor: [
-              "#3B82F6", // Entertainment
-              "#F97316", // Bill Expenses
-              "#2563EB", // Investment
-              "#1F2937", // Others
+              "#343C6A", // Entertainment
+              "#FC7900", // Bill Expenses
+              "#396AFF", // Investment
+              "#232323", // Others
             ],
             borderWidth: 0,
             // borderRadius: 4,
@@ -94,7 +94,7 @@ const ExpenseStatistics = () => {
   }, [expenseStats]);
 
   return (
-    <div className="px-2 md:px-6 py-4">
+    <div className="px-2 md:px-0 py-4">
       <h2 className="text-lg font-semibold text-gray-800 md:mb-4">
         Expense Statistics
       </h2>
