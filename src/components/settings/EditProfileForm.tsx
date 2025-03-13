@@ -404,7 +404,7 @@ function EditProfileForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="px-6 py-2 bg-gray-900 w-full md:w-[190px] text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 py-2 !bg-gray-900 w-full md:w-[190px] text-white rounded-lg hover:!bg-gray-600 transition-all duration-300 ease-in hover:scale-103 focus:!outline-none focus:!ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? "Saving..." : "Save"}
           </button>
