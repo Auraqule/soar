@@ -8,11 +8,11 @@ const CardSection = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
-    <div className="px-2 md:px-6 py-4">
+    <div className="px-2 md:px-4 lg:px-4 py-4">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold text-gray-800">My Cards</h2>
         <Link
-          to={"/"}
+          to={"/credit-cards"}
           className="text-sm text-primary-text font-semibold hover:text-[14.5px] hover:text-primary-black transition-all duration-300  flex items-center md:mr-4"
           aria-label="See all cards"
         >

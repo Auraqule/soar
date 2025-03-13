@@ -94,7 +94,7 @@ const ExpenseStatistics = () => {
   }, [expenseStats]);
 
   return (
-    <div className="px-2 md:px-0 py-4">
+    <div className="px-2 md:px-4 lg:px-4 py-4">
       <h2 className="text-lg font-semibold text-gray-800 md:mb-4">
         Expense Statistics
       </h2>
