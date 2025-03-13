@@ -1,12 +1,14 @@
 import { useEffect } from "react";
-import CardSection from "../components/dashboard/CardSection";
-import RecentTransactions from "../components/dashboard/RecentTransactions";
-import WeeklyActivity from "../components/dashboard/WeeklyActivity";
-import ExpenseStatistics from "../components/dashboard/ExpenseStatistics";
-import QuickTransfer from "../components/dashboard/QuickTransfer";
-import BalanceHistory from "../components/dashboard/BalanceHistory";
 import { useStore } from "../store";
 import { useMediaQuery } from "../hooks/useMediaQuery";
+import {
+  BalanceHistory,
+  CardSection,
+  ExpenseStatistics,
+  QuickTransfer,
+  RecentTransactions,
+  WeeklyActivity,
+} from "../components/dashboard";
 
 const Dashboard = () => {
   const { fetchUser, fetchCards, fetchTransactions, fetchChartData } =

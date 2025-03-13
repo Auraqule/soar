@@ -8,6 +8,10 @@
   --color-grey: #b1b1b1;
   --color-elavated-bg: #f5f7fa;
   --color-placeholder: #8ba3cb;
+  --color-tab-active-text: #232323;
+  --color-tab-inactive-text: #718ebf;
+  --color-input-border: #dfeaf2;
+  --color-input-text: #718ebf;
 }
 
 :root {

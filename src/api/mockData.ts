@@ -1,7 +1,7 @@
 import { assets } from "../constants";
 import { CardType, TransactionType, ContactType, UserType } from "../types";
 
-// Mock data for cards
+// 🟢 Mock data for cards
 export const fetchMockCards = (): Promise<CardType[]> => {
   return Promise.resolve([
     {
@@ -23,7 +23,7 @@ export const fetchMockCards = (): Promise<CardType[]> => {
   ]);
 };
 
-// Mock data for transactions
+// 🟢 Mock data for transactions
 export const fetchMockTransactions = (): Promise<TransactionType[]> => {
   return Promise.resolve([
     {
@@ -53,7 +53,7 @@ export const fetchMockTransactions = (): Promise<TransactionType[]> => {
   ]);
 };
 
-// Mock data for charts
+// 🟢 Mock data for charts
 export const fetchMockChartData = (): Promise<{
   weeklyActivity: { day: string; deposit: number; withdraw: number }[];
   expenseStats: { category: string; percentage: number }[];
@@ -132,7 +132,7 @@ export const fetchMockChartData = (): Promise<{
   });
 };
 
-// Mock data for user
+// 🟢 Mock data for user
 export const fetchMockUser = (): Promise<UserType> => {
   return Promise.resolve({
     id: 1,
@@ -140,11 +140,12 @@ export const fetchMockUser = (): Promise<UserType> => {
     username: "charlenereed",
     email: "charlenereed@gmail.com",
     avatar: assets.user,
-    dateOfBirth: "25 January 1990",
+    dateOfBirth: "2025-03-10",
     presentAddress: "San Jose, California, USA",
     permanentAddress: "San Jose, California, USA",
     city: "San Jose",
     postalCode: "45962",
     country: "USA",
+    password: "Password123!",
   });
 };

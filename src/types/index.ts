@@ -29,10 +29,11 @@ export interface UserType {
   username: string;
   email: string;
   avatar?: string;
-  dateOfBirth: string;
+  dateOfBirth: string | Date;
   presentAddress: string;
   permanentAddress: string;
   city: string;
   postalCode: string;
   country: string;
+  password: string;
 }
