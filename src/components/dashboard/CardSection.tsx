@@ -1,55 +1,39 @@
-import { useState } from "react";
 import { useStore } from "../../store";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import Card from "./Card";
-import { ChevronRightIcon } from "@heroicons/react/16/solid";
+import { Link } from "react-router";
 
 const CardSection = () => {
   const { cards } = useStore();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
-
-  // For mobile, show only one card at a time
-  const visibleCards = isMobile ? [cards[activeCardIndex]] : cards.slice(0, 2);
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm">
+    <div className="px-2 md:px-6 py-4">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold text-gray-800">My Cards</h2>
-        <a
-          href="#"
-          className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
+        <Link
+          to={"/"}
+          className="text-sm text-primary-text font-semibold hover:text-[14.5px] hover:text-primary-black transition-all duration-300  flex items-center md:mr-4"
           aria-label="See all cards"
         >
           See All
-          <ChevronRightIcon className="h-4 w-4 ml-1" />
-        </a>
+        </Link>
       </div>
 
-      <div className="flex space-x-4 overflow-x-auto pb-2">
-        {visibleCards.map((card) => (
-          <Card
-            key={card.id}
-            card={card}
-            className={isMobile ? "w-full" : "w-72"}
-          />
-        ))}
-      </div>
-
-      {isMobile && cards.length > 1 && (
-        <div className="flex justify-center mt-4 space-x-2">
-          {cards.map((_, index) => (
-            <button
-              key={index}
-              className={`h-2 w-2 rounded-full ${
-                index === activeCardIndex ? "bg-blue-600" : "bg-gray-300"
+      <div className="relative">
+        <div className="flex space-x-[20px] overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory">
+          {cards.map((card) => (
+            <div
+              key={card.id}
+              className={`snap-start flex-shrink-0 ${
+                isMobile ? "w-[85%] min-w-[256px]" : "w-[48.5%]"
               }`}
-              onClick={() => setActiveCardIndex(index)}
-              aria-label={`View card ${index + 1}`}
-            />
+            >
+              <Card card={card} />
+            </div>
           ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };

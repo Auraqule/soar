@@ -22,7 +22,7 @@ const Sidebar = () => {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `flex items-center px-4 py-3  border-l-3 ${
+                  `flex items-center px-4 py-4 border-l-3 ${
                     isActive
                       ? "border-black !text-primary-black opacity-100"
                       : "border-transparent !text-black opacity-35 hover:bg-gray-100"

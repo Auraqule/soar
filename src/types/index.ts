@@ -13,6 +13,7 @@ export interface TransactionType {
   date: string;
   amount: number;
   type: "deposit" | "payment" | "transfer";
+  action: "debit" | "credit";
 }
 
 export interface ContactType {
@@ -28,10 +29,11 @@ export interface UserType {
   username: string;
   email: string;
   avatar?: string;
-  dateOfBirth: string;
+  dateOfBirth: string | Date;
   presentAddress: string;
   permanentAddress: string;
   city: string;
   postalCode: string;
   country: string;
+  password: string;
 }

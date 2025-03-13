@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useLocation } from "react-router";
-import { BellIcon, CogIcon } from "@heroicons/react/16/solid";
-import { BellAlertIcon } from "@heroicons/react/16/solid";
 import { Icon } from "@iconify/react";
-import { assets } from "../constants";
+import { useStore } from "../store";
 const Header = () => {
+  const { user } = useStore();
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
 
   const getPageTitle = () => {
     if (location.pathname === "/") return "Overview";
     if (location.pathname === "/settings") return "Setting";
+    if (location.pathname === "/credit-cards") return "Credit Cards";
     return (
       location.pathname.substring(1).charAt(0).toUpperCase() +
       location.pathname.substring(2)
@@ -64,7 +64,7 @@ const Header = () => {
 
         <div className="h-15 w-15 rounded-full overflow-hidden">
           <img
-            src={assets.user}
+            src={user?.avatar}
             alt="User profile"
             className="h-full w-full object-cover"
           />
