@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { Icon } from "@iconify/react";
 import { useStore } from "../store";
+
 const Header = () => {
   const { user } = useStore();
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
-
+  const navigate = useNavigate();
   const getPageTitle = () => {
     if (location.pathname === "/") return "Overview";
     if (location.pathname === "/settings") return "Setting";
@@ -41,6 +42,7 @@ const Header = () => {
         <button
           className="p-2 rounded-full bg-elavated-bg text-gray-500 hover:bg-gray-100 focus:outline-none"
           aria-label="Settings"
+          onClick={() => navigate("/settings")}
         >
           <Icon
             icon="system-uicons:settings"
