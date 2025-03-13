@@ -8,9 +8,11 @@ import { CalendarIcon } from "@heroicons/react/16/solid";
 import { Popover, Transition } from "@headlessui/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useStore } from "../../store";
 import { Icon } from "@iconify/react";
 import SuccessPopup from "../SuccessPopup";
+import { useSelector } from "react-redux";
+import { RootState, useAppDispatch } from "../../store";
+import { updateUser } from "../../slices/storeSlice";
 
 const profileFormSchema = z.object({
   avatar: z.string().optional(),
@@ -37,7 +39,8 @@ const profileFormSchema = z.object({
 type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
 function EditProfileForm() {
-  const { user, updateUser } = useStore();
+  const user = useSelector((state: RootState) => state.store.user);
+  const dispatch = useAppDispatch();
   const [avatar, setAvatar] = useState(user?.avatar);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
@@ -88,18 +91,20 @@ function EditProfileForm() {
       // 🟢 Simulate an API call to update the user
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      updateUser({
-        avatar: data.avatar,
-        name: data.name,
-        username: data.username,
-        email: data.email,
-        dateOfBirth: data.dateOfBirth,
-        presentAddress: data.presentAddress,
-        permanentAddress: data.permanentAddress,
-        city: data.city,
-        postalCode: data.postalCode,
-        country: data.country,
-      });
+      dispatch(
+        updateUser({
+          avatar: data.avatar,
+          name: data.name,
+          username: data.username,
+          email: data.email,
+          dateOfBirth: data.dateOfBirth,
+          presentAddress: data.presentAddress,
+          permanentAddress: data.permanentAddress,
+          city: data.city,
+          postalCode: data.postalCode,
+          country: data.country,
+        })
+      );
 
       setSuccessMessage("Profile updated successfully!");
       setTimeout(() => setSuccessMessage(""), 3000);

@@ -1,10 +1,13 @@
 import { CreditCardIcon } from "@heroicons/react/16/solid";
-import { useStore } from "../../store";
 import { Icon } from "@iconify/react";
 import { assets } from "../../constants";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 const RecentTransactions = () => {
-  const { transactions } = useStore();
+  const transactions = useSelector(
+    (state: RootState) => state.store.transactions
+  );
 
   const getTransactionIcon = (type: string) => {
     switch (type) {

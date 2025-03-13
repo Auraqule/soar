@@ -1,11 +1,14 @@
 import { useRef, useEffect } from "react";
 import { Chart, registerables } from "chart.js";
-import { useStore } from "../../store";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 Chart.register(...registerables);
 
 const WeeklyActivity = () => {
-  const { weeklyActivity } = useStore();
+  const weeklyActivity = useSelector(
+    (state: RootState) => state.store.weeklyActivity
+  );
   const chartRef = useRef<HTMLCanvasElement>(null);
   const chartInstance = useRef<Chart | null>(null);
 

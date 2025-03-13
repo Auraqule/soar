@@ -1,11 +1,14 @@
 import { useRef, useEffect } from "react";
 import { Chart, registerables } from "chart.js";
-import { useStore } from "../../store";
+import { RootState } from "../../store";
+import { useSelector } from "react-redux";
 
 Chart.register(...registerables);
 
 const BalanceHistory = () => {
-  const { balanceHistory } = useStore();
+  const balanceHistory = useSelector(
+    (state: RootState) => state.store.balanceHistory
+  );
   const chartRef = useRef<HTMLCanvasElement>(null);
   const chartInstance = useRef<Chart | null>(null);
 

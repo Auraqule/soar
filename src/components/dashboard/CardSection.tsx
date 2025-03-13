@@ -1,10 +1,11 @@
-import { useStore } from "../../store";
+import { useSelector } from "react-redux";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import Card from "./Card";
 import { Link } from "react-router";
+import { RootState } from "../../store";
 
 const CardSection = () => {
-  const { cards } = useStore();
+  const cards = useSelector((state: RootState) => state.store.cards);
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (

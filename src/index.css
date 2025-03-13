@@ -37,7 +37,6 @@ h1 {
 button {
   cursor: pointer;
   outline: none !important;
-  background-color: transparent !important;
 }
 button:hover {
   border-color: #646cff;

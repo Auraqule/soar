@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useStore } from "../store";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import {
   BalanceHistory,
@@ -9,17 +8,23 @@ import {
   RecentTransactions,
   WeeklyActivity,
 } from "../components/dashboard";
+import { useAppDispatch } from "../store";
+import {
+  fetchCards,
+  fetchChartData,
+  fetchTransactions,
+  fetchUser,
+} from "../slices/storeSlice";
 
 const Dashboard = () => {
-  const { fetchUser, fetchCards, fetchTransactions, fetchChartData } =
-    useStore();
+  const dispatch = useAppDispatch();
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
-    fetchUser();
-    fetchCards();
-    fetchTransactions();
-    fetchChartData();
+    dispatch(fetchUser());
+    dispatch(fetchCards());
+    dispatch(fetchTransactions());
+    dispatch(fetchChartData());
   }, [fetchUser, fetchCards, fetchTransactions, fetchChartData]);
 
   return (

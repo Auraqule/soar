@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { Icon } from "@iconify/react";
-import { useStore } from "../store";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 const Header = () => {
-  const { user } = useStore();
+  const user = useSelector((state: RootState) => state.store.user);
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
