@@ -7,3 +7,4 @@ export { default as Loans } from "./Loans";
 export { default as Investments } from "./Investments";
 export { default as Privileges } from "./Privileges";
 export { default as Services } from "./Services";
+export { default as NotFound } from "./NotFound";

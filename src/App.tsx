@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
 import Layout from "./components/Layout";
 import { lazy, Suspense } from "react";
 import SuspenseFallback from "./components/SuspenseFallback";
-import { Dashboard, Settings } from "./pages";
+import { Dashboard, NotFound, Settings } from "./pages";
 
 const Transactions = lazy(() => import("./pages/Transactions"));
 const Accounts = lazy(() => import("./pages/Accounts"));
@@ -27,6 +27,7 @@ function App() {
             <Route path="loans" element={<Loans />} />
             <Route path="services" element={<Services />} />
             <Route path="privileges" element={<Privileges />} />
+            <Route path="*" element={<NotFound />} />{" "}
           </Route>
         </Routes>
       </Suspense>
