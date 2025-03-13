@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { useStore } from "../../store";
 import { Icon } from "@iconify/react";
+import SuccessPopup from "../SuccessPopup";
 
 const QuickTransfer = () => {
   const { contacts } = useStore();
   const [selectedContact, setSelectedContact] = useState<number | null>(null);
   const [amount, setAmount] = useState("");
-
+  const [successMessage, setSuccessMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const containerRef = useRef<any>(null);
@@ -22,27 +24,33 @@ const QuickTransfer = () => {
   const scroll = (direction: string) => {
     if (containerRef.current) {
       containerRef.current.scrollBy({
-        left: direction === "right" ? 200 : -200, // Adjust scroll distance
+        left: direction === "right" ? 200 : -200,
         behavior: "smooth",
       });
     }
   };
 
-  const handleSend = () => {
-    if (selectedContact === null || !amount) return;
-
-    // In a real app, you would call an API to process the transfer
-    console.log(`Sending $${amount} to contact ID: ${selectedContact}`);
-
-    setSelectedContact(null);
-    setAmount("");
+  const handleSend = async () => {
+    try {
+      setIsSubmitting(true);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (!amount) return;
+      setSuccessMessage("Money sent successfully!");
+      setTimeout(() => setSuccessMessage(""), 3000);
+      setSelectedContact(null);
+      setAmount("");
+    } catch (error) {
+      console.error("Error sending money:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
     const container = containerRef.current;
     if (container) {
       container.addEventListener("scroll", handleScroll);
-      handleScroll(); // Initial check
+      handleScroll();
     }
     return () => {
       if (container) {
@@ -56,6 +64,8 @@ const QuickTransfer = () => {
       <h2 className="text-lg font-semibold text-gray-800 mb-4">
         Quick Transfer
       </h2>
+
+      <SuccessPopup successMessage={successMessage} />
 
       <div className="flex flex-col justify-center space-y-4 md:h-69 md:bg-white rounded-3xl px-2 pt-4 md:p-6">
         <div className="relative">
@@ -161,16 +171,23 @@ const QuickTransfer = () => {
           </div>
 
           <button
-            className={`absolute top-1/2 -translate-y-1/2 right-0 px-4 py-2 rounded-[50px] flex items-center h-full bg-primary-black text-white gap-2 ${
-              selectedContact !== null && amount
-                ? "bg-gray-900 text-white hover:bg-gray-800"
-                : "bg-gray-200 text-gray-500 cursor-not-allowed"
-            }`}
-            disabled={selectedContact === null || !amount}
+            className={`absolute top-1/2  -translate-y-1/2 right-0 px-4 py-2 rounded-[50px] flex items-center h-full transition-all duration-300 ease-in-out transform
+    ${isSubmitting ? "bg-gray-600 cursor-not-allowed" : "bg-primary-black"}
+    text-white gap-2 ${
+      amount
+        ? "bg-gray-900 text-white hover:bg-gray-800 hover:scale-105 hover:shadow-lg"
+        : "bg-gray-200 text-gray-500 cursor-not-allowed"
+    }`}
+            disabled={!amount || isSubmitting}
             onClick={handleSend}
           >
-            Send
-            <Icon icon="ph:telegram-logo-duotone" width="26" height="26" />
+            {isSubmitting ? "Sending..." : "Send"}
+            <Icon
+              icon="ph:telegram-logo-duotone"
+              width="26"
+              height="26"
+              className={` ${amount ? "animate-pulse" : "animate-none"}`}
+            />
           </button>
         </div>
       </div>

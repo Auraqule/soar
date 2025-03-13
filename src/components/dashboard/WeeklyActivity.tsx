@@ -12,7 +12,6 @@ const WeeklyActivity = () => {
   useEffect(() => {
     if (!chartRef.current || !weeklyActivity) return;
 
-    // Destroy previous chart instance if it exists
     if (chartInstance.current) {
       chartInstance.current.destroy();
     }
@@ -61,7 +60,7 @@ const WeeklyActivity = () => {
               font: {
                 size: 12,
               },
-              color: "#6B7280", // Gray color for legend text
+              color: "#6B7280",
             },
           },
           tooltip: {

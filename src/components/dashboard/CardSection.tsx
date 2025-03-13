@@ -1,6 +1,7 @@
 import { useStore } from "../../store";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import Card from "./Card";
+import { Link } from "react-router";
 
 const CardSection = () => {
   const { cards } = useStore();
@@ -10,13 +11,13 @@ const CardSection = () => {
     <div className="px-2 md:px-6 py-4">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold text-gray-800">My Cards</h2>
-        <a
-          href="#"
-          className="text-sm text-primary-text font-semibold hover:text-blue-800 flex items-center md:mr-4"
+        <Link
+          to={"/"}
+          className="text-sm text-primary-text font-semibold hover:text-[14.5px] hover:text-primary-black transition-all duration-300  flex items-center md:mr-4"
           aria-label="See all cards"
         >
           See All
-        </a>
+        </Link>
       </div>
 
       <div className="relative">
