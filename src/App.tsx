@@ -19,14 +19,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="transactions" element={<Transactions />} />
-            <Route path="accounts" element={<Accounts />} />
-            <Route path="investments" element={<Investments />} />
-            <Route path="credit-cards" element={<CreditCards />} />
-            <Route path="loans" element={<Loans />} />
-            <Route path="services" element={<Services />} />
-            <Route path="privileges" element={<Privileges />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/transactions" element={<Transactions />} />
+            <Route path="/accounts" element={<Accounts />} />
+            <Route path="/investments" element={<Investments />} />
+            <Route path="/credit-cards" element={<CreditCards />} />
+            <Route path="/loans" element={<Loans />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/privileges" element={<Privileges />} />
           </Route>
         </Routes>
       </Suspense>
