@@ -1,12 +1,15 @@
 import { useRef, useEffect } from "react";
 import { Chart, registerables } from "chart.js";
-import { useStore } from "../../store";
 import DataLabelsPlugin from "chartjs-plugin-datalabels";
+import { RootState } from "../../store";
+import { useSelector } from "react-redux";
 
 Chart.register(...registerables, DataLabelsPlugin);
 
 const ExpenseStatistics = () => {
-  const { expenseStats } = useStore();
+  const expenseStats = useSelector(
+    (state: RootState) => state.store.expenseStats
+  );
   const chartRef = useRef<HTMLCanvasElement>(null);
   const chartInstance = useRef<Chart | null>(null);
 
@@ -52,9 +55,9 @@ const ExpenseStatistics = () => {
               font: {
                 size: 12,
               },
-              //   generateLabels: () => {
-              //     return []; // Return an empty array to hide legend labels
-              //   },
+              generateLabels: () => {
+                return []; // Return an empty array to hide legend labels
+              },
             },
           },
           tooltip: {
@@ -99,7 +102,7 @@ const ExpenseStatistics = () => {
         Expense Statistics
       </h2>
 
-      <div className="h-81 md:bg-white rounded-3xl md:p-6">
+      <div className="h-81 md:bg-white rounded-3xl md:p-6 ">
         <canvas
           ref={chartRef}
           aria-label="Expense statistics pie chart"

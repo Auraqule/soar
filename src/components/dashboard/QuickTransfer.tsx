@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { useStore } from "../../store";
 import { Icon } from "@iconify/react";
 import SuccessPopup from "../SuccessPopup";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 const QuickTransfer = () => {
-  const { contacts } = useStore();
+  const contacts = useSelector((state: RootState) => state.store.contacts);
   const [selectedContact, setSelectedContact] = useState<number | null>(null);
   const [amount, setAmount] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -171,8 +172,12 @@ const QuickTransfer = () => {
           </div>
 
           <button
-            className={`absolute top-1/2  -translate-y-1/2 right-0 px-4 py-2 rounded-[50px] flex items-center h-full transition-all duration-300 ease-in-out transform
-    ${isSubmitting ? "!bg-gray-600 cursor-not-allowed" : "!bg-primary-black"}
+            className={`absolute top-1/2   -translate-y-1/2 right-0 px-4 py-2 rounded-[50px] flex items-center h-full transition-all duration-300 ease-in-out transform
+    ${
+      isSubmitting
+        ? "!bg-gray-600 !cursor-not-allowed"
+        : "!bg-primary-black hover:!bg-gray-800 hover:scale-105 hover:shadow-lg"
+    }
     text-white gap-2 ${
       amount
         ? "!bg-gray-900 text-white hover:!bg-gray-800 hover:scale-105 hover:shadow-lg"
