@@ -13,6 +13,7 @@ export interface TransactionType {
   date: string;
   amount: number;
   type: "deposit" | "payment" | "transfer";
+  action: "debit" | "credit";
 }
 
 export interface ContactType {

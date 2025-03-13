@@ -12,21 +12,20 @@ const CardSection = () => {
         <h2 className="text-lg font-semibold text-gray-800">My Cards</h2>
         <a
           href="#"
-          className="text-sm text-primary-text font-semibold hover:text-blue-800 flex items-center"
+          className="text-sm text-primary-text font-semibold hover:text-blue-800 flex items-center md:mr-4"
           aria-label="See all cards"
         >
           See All
         </a>
       </div>
 
-      {/* Card Container */}
       <div className="relative">
         <div className="flex space-x-[20px] overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory">
           {cards.map((card) => (
             <div
               key={card.id}
               className={`snap-start flex-shrink-0 ${
-                isMobile ? "w-[85%]" : "w-full"
+                isMobile ? "w-[85%] min-w-[256px]" : "w-[48.5%]"
               }`}
             >
               <Card card={card} />

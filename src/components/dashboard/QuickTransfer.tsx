@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useStore } from "../../store";
-import { PaperAirplaneIcon } from "@heroicons/react/16/solid";
+import { Icon } from "@iconify/react";
 
 const QuickTransfer = () => {
   const { contacts } = useStore();
@@ -11,7 +11,6 @@ const QuickTransfer = () => {
   const [showRightArrow, setShowRightArrow] = useState(true);
   const containerRef = useRef<any>(null);
 
-  // Handle scroll events
   const handleScroll = () => {
     if (containerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
@@ -20,7 +19,6 @@ const QuickTransfer = () => {
     }
   };
 
-  // Scroll left or right
   const scroll = (direction: string) => {
     if (containerRef.current) {
       containerRef.current.scrollBy({
@@ -36,7 +34,6 @@ const QuickTransfer = () => {
     // In a real app, you would call an API to process the transfer
     console.log(`Sending $${amount} to contact ID: ${selectedContact}`);
 
-    // Reset form after sending
     setSelectedContact(null);
     setAmount("");
   };
@@ -55,12 +52,12 @@ const QuickTransfer = () => {
   }, []);
 
   return (
-    <div className="py-6">
+    <div className="px-2 md:px-6 py-4">
       <h2 className="text-lg font-semibold text-gray-800 mb-4">
         Quick Transfer
       </h2>
 
-      <div className="md:h-69 md:bg-white rounded-3xl px-2 pt-4 md:p-6">
+      <div className="flex flex-col justify-center space-y-4 md:h-69 md:bg-white rounded-3xl px-2 pt-4 md:p-6">
         <div className="relative">
           {/* Left Arrow */}
           {showLeftArrow && (
@@ -96,7 +93,7 @@ const QuickTransfer = () => {
                 key={contact.id}
                 className={`flex flex-col items-center p-2 rounded-lg min-w-[80px] ${
                   selectedContact === contact.id
-                    ? "bg-blue-50 ring-2 ring-blue-500"
+                    ? "bg-blue-50"
                     : "hover:bg-gray-50"
                 }`}
                 onClick={() => setSelectedContact(contact.id)}
@@ -143,12 +140,18 @@ const QuickTransfer = () => {
         </div>
 
         {/* Amount Input and Send Button */}
-        <div className="mt-4 flex items-center gap-2">
-          <div className="flex-1">
+        <div className="flex items-center space-x-7 mt-4 relative">
+          <div>
+            <label htmlFor="amount" className="text-[#718EBF]">
+              Write amount
+            </label>
+          </div>
+          <div className="flex-1 bg-[#EDF1F7] rounded-[50px] h-[50px]">
             <input
               type="text"
-              placeholder="Write Amount"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              id="amount"
+              placeholder="0.00"
+              className="w-full h-full  px-8 pr-22 py-2 placeholder:text-[#718EBF] border-gray-300 outline-none"
               value={amount}
               onChange={(e) => {
                 const value = e.target.value.replace(/[^0-9.]/g, "");
@@ -158,7 +161,7 @@ const QuickTransfer = () => {
           </div>
 
           <button
-            className={`px-4 py-2 rounded-lg flex items-center gap-2 ${
+            className={`absolute top-1/2 -translate-y-1/2 right-0 px-4 py-2 rounded-[50px] flex items-center h-full bg-primary-black text-white gap-2 ${
               selectedContact !== null && amount
                 ? "bg-gray-900 text-white hover:bg-gray-800"
                 : "bg-gray-200 text-gray-500 cursor-not-allowed"
@@ -167,7 +170,7 @@ const QuickTransfer = () => {
             onClick={handleSend}
           >
             Send
-            <PaperAirplaneIcon className="h-4 w-4 transform rotate-90" />
+            <Icon icon="ph:telegram-logo-duotone" width="26" height="26" />
           </button>
         </div>
       </div>

@@ -6,7 +6,7 @@ export const fetchMockCards = (): Promise<CardType[]> => {
   return Promise.resolve([
     {
       id: 1,
-      cardNumber: "3778 •••• •••• 1234",
+      cardNumber: "3778 **** **** 1234",
       cardHolder: "Eddy Cusuma",
       balance: 5756,
       validThru: "12/22",
@@ -14,7 +14,7 @@ export const fetchMockCards = (): Promise<CardType[]> => {
     },
     {
       id: 2,
-      cardNumber: "4539 •••• •••• 5678",
+      cardNumber: "4539 **** **** 5678",
       cardHolder: "Eddy Cusuma",
       balance: 3400,
       validThru: "10/24",
@@ -32,6 +32,7 @@ export const fetchMockTransactions = (): Promise<TransactionType[]> => {
       date: "25 January 2021",
       amount: 850,
       type: "deposit",
+      action: "debit",
     },
     {
       id: 2,
@@ -39,6 +40,7 @@ export const fetchMockTransactions = (): Promise<TransactionType[]> => {
       date: "25 January 2021",
       amount: 2500,
       type: "payment",
+      action: "credit",
     },
     {
       id: 3,
@@ -46,6 +48,7 @@ export const fetchMockTransactions = (): Promise<TransactionType[]> => {
       date: "21 January 2021",
       amount: 5400,
       type: "transfer",
+      action: "credit",
     },
   ]);
 };
@@ -136,7 +139,7 @@ export const fetchMockUser = (): Promise<UserType> => {
     name: "Charlene Reed",
     username: "charlenereed",
     email: "charlenereed@gmail.com",
-    avatar: "/placeholder.svg?height=96&width=96",
+    avatar: assets.user,
     dateOfBirth: "25 January 1990",
     presentAddress: "San Jose, California, USA",
     permanentAddress: "San Jose, California, USA",
@@ -144,28 +147,4 @@ export const fetchMockUser = (): Promise<UserType> => {
     postalCode: "45962",
     country: "USA",
   });
-};
-
-// Mock data for contacts
-export const fetchMockContacts = (): Promise<ContactType[]> => {
-  return Promise.resolve([
-    {
-      id: 1,
-      name: "Livia Bator",
-      role: "CEO",
-      avatar: "/placeholder.svg?height=48&width=48",
-    },
-    {
-      id: 2,
-      name: "Randy Press",
-      role: "Director",
-      avatar: "/placeholder.svg?height=48&width=48",
-    },
-    {
-      id: 3,
-      name: "Workman",
-      role: "Designer",
-      avatar: "/placeholder.svg?height=48&width=48",
-    },
-  ]);
 };

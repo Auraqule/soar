@@ -125,7 +125,7 @@ const BalanceHistory = () => {
   }, [balanceHistory]);
 
   return (
-    <div className="px-2 pb-6  md:p-6">
+    <div className="px-2 md:py-4">
       <h2 className="text-lg font-semibold text-gray-800 mb-4">
         Balance History
       </h2>
