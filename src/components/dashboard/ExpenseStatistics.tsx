@@ -52,9 +52,9 @@ const ExpenseStatistics = () => {
               font: {
                 size: 12,
               },
-              generateLabels: () => {
-                return []; // Return an empty array to hide legend labels
-              },
+              //   generateLabels: () => {
+              //     return []; // Return an empty array to hide legend labels
+              //   },
             },
           },
           tooltip: {
