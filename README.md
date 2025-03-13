@@ -6,7 +6,7 @@ Financial dashboard application built with **React (Vite)**, **TailwindCSS**, **
 
 ## 🚀 Live Demo
 
-[soar-pi.vercel.app](soar-pi.vercel.app)
+[https://soar-pi.vercel.app/](https://soar-pi.vercel.app/)
 [![Screenshot of Dashboard](https://i.postimg.cc/wB3dhsmY/Screen-Shot-2025-03-13-at-10-57-40-PM.png)](https://krowdshield.vercel.app)
 
 ---
@@ -55,7 +55,7 @@ Financial dashboard application built with **React (Vite)**, **TailwindCSS**, **
 1. **Clone the repository:**
 
    ```
-   git clone https://github.com/auraqules/soar.git
+   git clone https://github.com/auraqule/soar.git
    cd soar
    ```
 
@@ -69,6 +69,13 @@ Financial dashboard application built with **React (Vite)**, **TailwindCSS**, **
    ```
    yarn run dev
    ```
+
+### ✅ To-Do (Future Improvements)
+
+- Implement real API endpoints for dynamic data integrating with backend using Tanstack Query
+- Add authentication & user login/logout functionality
+- Improve UI animations
+- e.t.c
 
 # React + TypeScript + Vite
 
