@@ -172,11 +172,11 @@ const QuickTransfer = () => {
 
           <button
             className={`absolute top-1/2  -translate-y-1/2 right-0 px-4 py-2 rounded-[50px] flex items-center h-full transition-all duration-300 ease-in-out transform
-    ${isSubmitting ? "bg-gray-600 cursor-not-allowed" : "bg-primary-black"}
+    ${isSubmitting ? "!bg-gray-600 cursor-not-allowed" : "!bg-primary-black"}
     text-white gap-2 ${
       amount
-        ? "bg-gray-900 text-white hover:bg-gray-800 hover:scale-105 hover:shadow-lg"
-        : "bg-gray-200 text-gray-500 cursor-not-allowed"
+        ? "!bg-gray-900 text-white hover:!bg-gray-800 hover:scale-105 hover:shadow-lg"
+        : "!bg-gray-200 text-gray-500 cursor-not-allowed"
     }`}
             disabled={!amount || isSubmitting}
             onClick={handleSend}
