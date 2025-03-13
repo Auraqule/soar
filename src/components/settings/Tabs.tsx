@@ -5,7 +5,7 @@ type TProps = {
 
 const Tabs = ({ activeTab, setActiveTab }: TProps) => {
   return (
-    <div className="border-b border-[#F4F5F7]">
+    <div className="border-b border-[#F4F5F7] pt-2">
       <nav className="flex">
         <button
           className={`px-4 py-4 text-sm font-medium transition-all duration-150 ease-linear ${
