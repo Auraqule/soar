@@ -113,7 +113,7 @@ function EditProfileForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-8 py-6 md:pl-7 mt-5 flex flex-col lg:flex-row lg:items-start space-x-[56px] min-h-[78vh] relative"
+      className="space-y-8 py-6 px-2 md:pl-7 md:pr-0 mt-5 flex flex-col lg:flex-row lg:items-start space-x-[56px] min-h-[75vh] relative"
     >
       <SuccessPopup successMessage={successMessage} />
 
