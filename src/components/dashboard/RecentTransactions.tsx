@@ -41,7 +41,7 @@ const RecentTransactions = () => {
   };
 
   return (
-    <div className="px-2 md:px-4 lg:px-4 py-4">
+    <div className="px-2 md:px-4 lg:pl-2 py-4">
       <h2 className="text-lg font-semibold text-gray-800 mb-4">
         Recent Transaction
       </h2>
