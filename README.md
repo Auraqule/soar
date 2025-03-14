@@ -72,9 +72,61 @@ Financial dashboard application built with **React (Vite)**, **TailwindCSS**, **
 
 ### ✅ To-Do (Future Improvements)
 
-- Implement real API endpoints for dynamic data integrating with backend using Tanstack Query
-- Add authentication & user login/logout functionality
-- Improve UI animations
+### 🌐 **API Integration**
+
+- Implement real API endpoints for dynamic data fetching, integrating with a backend using **TanStack Query** for efficient state management and caching.
+
+### 🔐 **Authentication & Authorization**
+
+- Add **JWT-based authentication** and implement **role-based access control (RBAC)** for different user permissions.
+
+### ⚙️ **State Management Enhancements**
+
+- Optimize **Redux Toolkit** slices for better scalability.
+- Introduce **RTK Query** for efficient data fetching.
+
+### 🎨 **Improved UI/UX**
+
+- Enhance UI and charts for pixel-perfect precision and better user intuitiveness.
+- Refine layout and responsiveness to ensure seamless adaptability across various device sizes and orientations.
+- Enhance micro-interactions using **Framer Motion** for smooth animations.
+- Implement **dark mode toggle** using Tailwind's dark mode feature.
+- Improve accessibility (ARIA attributes, better keyboard navigation).
+
+### 📝 **Form Enhancements**
+
+- Extend **Zod validation schemas** for more robust input validation.
+- Implement **auto-save functionality** for forms.
+
+### 🔍 **Testing & Code Quality**
+
+- Enforce **ESLint** + **Prettier** with project-specific rules.
+- Add **unit tests** (Jest, React Testing Library) and **end-to-end tests** (Cypress or Playwright).
+- Set up **Husky** & **lint-staged** for pre-commit checks.
+
+### 🚀 **CI/CD & Deployment**
+
+- Set up **GitHub Actions** for automated builds, tests, and deployments.
+- Implement **Dockerization** for containerized deployment.
+- Optimize performance with **code splitting** & **lazy loading**.
+
+### ⚡ **Performance Optimization**
+
+- Reduce bundle size using **Tree Shaking** & **Code Splitting**.
+- Implement **service workers** for caching critical assets and offline mode.
+- Optimize images & assets using **Next-gen formats** (WebP, AVIF).
+
+### 🔐 **Security Enhancements**
+
+- Implement **CSP (Content Security Policy)** to prevent XSS attacks.
+- Secure API requests with **OAuth2** / **API key management**.
+- Regular **dependency audits** to prevent vulnerabilities.
+
+### 🗄 **Database & Backend Enhancements**
+
+- Implement **WebSockets** for real-time transaction updates.
+- Introduce **GraphQL** or **RESTful API** optimizations for fetching data efficiently.
+- Improve **database indexing** for fast financial data retrieval.
 - e.t.c
 
 # React + TypeScript + Vite
